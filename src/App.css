@@ -13,19 +13,31 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.main-footer{
+  background-color: khaki;
+  padding-top: 3em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.row{
+text-align: left;
+}
+
+.footer-bottom p{
+  text-align: center;
+  text-size-adjust: xs;
+}
+
+.page-container{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.content-wrap{
+  flex: 1;
 }
 
 @keyframes App-logo-spin {

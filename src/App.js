@@ -2,6 +2,7 @@
 import React from 'react';
 import './App.css';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
+import { HeaderPage, FooterPage } from './components';
 import routes from './config/routes';
 import { isUserAuthenticated } from './utils/cookie';
 
@@ -21,28 +22,34 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Switch>
-        {routes.map((route) => {
-          if (route.isPublic) {
-            return (
-              <Route
-                path={route.path}
-                component={route.component}
-                key={route.path}
-              />
-            );
-          }
-          return (
-            <PrivateRoute
-              path={route.path}
-              component={route.component}
-              key={route.path}
-            />
-          );
-        })}
-      </Switch>
-    </BrowserRouter>
+    <div className="page-container">
+      <div className="content-wrap">
+        <BrowserRouter>
+          <HeaderPage />
+          <Switch>
+            {routes.map((route) => {
+              if (route.isPublic) {
+                return (
+                  <Route
+                    path={route.path}
+                    component={route.component}
+                    key={route.path}
+                  />
+                );
+              }
+              return (
+                <PrivateRoute
+                  path={route.path}
+                  component={route.component}
+                  key={route.path}
+                />
+              );
+            })}
+          </Switch>
+          <FooterPage />
+        </BrowserRouter>
+      </div>
+    </div>
   );
 };
 
