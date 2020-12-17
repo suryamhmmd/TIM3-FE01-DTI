@@ -1,20 +1,43 @@
-import { Home, Peminjaman, Pengembalian, Keranjang } from '../pages';
+import {
+  Home,
+  Peminjaman,
+  Pengembalian,
+  Keranjang,
+  LoginMember,
+  Register,
+  LoginPustakawan,
+} from '../pages';
 
 const routes = [
   {
+    path: '/loginMember',
+    component: LoginMember,
+    isPublic: true,
+  },
+  {
+    path: '/loginPustakawan',
+    component: LoginPustakawan,
+    isPublic: true,
+  },
+  {
+    path: '/register',
+    component: Register,
+    isPublic: true,
+  },
+  {
     path: '/keranjang',
     component: Keranjang,
-    isPublic: false,
+    isPublic: true,
   },
   {
     path: '/peminjaman',
     component: Peminjaman,
-    isPublic: false,
+    isPublic: true,
   },
   {
     path: '/pengembalian',
     component: Pengembalian,
-    isPublic: false,
+    isPublic: true,
   },
   {
     path: '/',
