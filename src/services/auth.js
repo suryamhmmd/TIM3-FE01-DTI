@@ -1,17 +1,11 @@
 import BaseService from './baseService';
 import API from '../config/rest';
 
-const login = (username, password) => {
-  return BaseService.post(API.LOGIN, { username, password });
+const loginMember = (email, password) => {
+  return BaseService.post(API.LOGINMEMBER, { email, password });
 };
-const product = () => {
-  return BaseService.get(API.PRODUCT, {
-    params: {
-      limit: 10,
-      offset: 0,
-      search: '',
-    },
-  });
+const book = () => {
+  return BaseService.get(API.BOOKS);
 };
 
-export default { login, product };
+export default { loginMember, book };

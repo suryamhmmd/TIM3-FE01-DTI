@@ -1,3 +1,4 @@
 export default {
-  LOGIN: '/login',
+  LOGINMEMBER: '/member/auth/login',
+  BOOKS: '/book',
 };

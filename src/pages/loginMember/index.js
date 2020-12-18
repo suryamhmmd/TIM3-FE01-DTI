@@ -16,17 +16,18 @@ import { auth } from '../../services';
 import { setCookie } from '../../utils/cookie';
 
 const LoginMember = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoginLoading, setLoginLoading] = useState(false);
 
   const onSubmitLogin = () => {
     setLoginLoading(true);
     auth
-      .login(username, password)
+      .loginMember(email, password)
       .then((res) => {
+        console.log('test');
         const cookieToken = res.token;
-        const cookieUser = res.userId;
+        const cookieUser = '5fdb9a05c58be8001759b6af';
         setCookie('userData', JSON.stringify(cookieUser), 10000);
         setCookie('token', JSON.stringify(cookieToken), 10000);
       })
@@ -102,9 +103,9 @@ const LoginMember = () => {
             name="email"
             autoComplete="email"
             autoFocus
-            value={username}
+            value={email}
             onChange={(e) => {
-              setUsername(e.target.value);
+              setEmail(e.target.value);
             }}
           />
           <TextField
