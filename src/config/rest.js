@@ -1,4 +1,8 @@
 export default {
-  LOGINMEMBER: '/member/auth/login',
-  BOOKS: '/book',
+  LOGINMEMBER: '/login',
+  BOOKS: '/buku',
+  BOOKID: (id) => {
+    return `/product/${id}`;
+  },
+  REGISTER: '/signup',
 };

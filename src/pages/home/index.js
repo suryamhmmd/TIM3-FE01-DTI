@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+// import { CardDeck } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-// import { Card, CardDeck } from 'react-bootstrap';
 import Skeleton from 'react-loading-skeleton';
 import Typewriter from 'typewriter-effect';
-import { auth } from '../../services';
+import ReactTooltip from 'react-tooltip';
+// import { Carousel } from 'primereact/carousel';
+import { book as bookServices } from '../../services';
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -11,7 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     setLoading(true);
-    auth
+    bookServices
       .book()
       .then((res) => {
         console.log(res);
@@ -42,43 +44,37 @@ const Home = () => {
           </h1>
         </div>
       </div>
-      {/* <CardDeck>
-        <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-      </CardDeck> */}
       <div className="content">
         {!loading ? (
-          <div>
-            <div className="card-deck">
-              {books.map((val) => {
-                return (
-                  <Link to="/home" className="card">
-                    <hr />
-                    <div className="card-body">
-                      <h5 className="card-title">{val.title}</h5>
-                      <div className="normalprice m-0">
-                        <span className="normalprice_disc">{val.bookID}</span>
-                        {' '}
-                        <span className="normalprice_price">{val.authors}</span>
-                      </div>
-                      <span className="card-text">{val.publisher}</span>
-                    </div>
-                  </Link>
-                );
-              })}
+          <div className=" container mt-5 container rounded shadow">
+            <div className="pt-4 px-3">
+              <h4>Best Seller</h4>
             </div>
+            <ReactTooltip place="top" type="dark" effect="solid" />
+            {books.map((p) => {
+              return (
+                <Link to={`/buku/${p.id}`} key={p.id} className="card">
+                  <div
+                    className=" card m-3 p-3 text-center"
+                    style={{ width: '60rem' }}
+                  >
+                    <div className="card-body">
+                      <p className="font-weight-bold card-title text-truncate">
+                        {p.judul}
+                      </p>
+                      <p className="card-text font-weight-bold">{p.penulis}</p>
+                      <p className="card-text font-weight-bold">{p.penerbit}</p>
+                      <button
+                        className="btn btn-block btn-outline-dark my-2"
+                        type="submit"
+                      >
+                        Pinjam
+                      </button>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         ) : (
           <Skeleton height={100} />

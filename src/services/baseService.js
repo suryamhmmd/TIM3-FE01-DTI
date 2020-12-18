@@ -9,7 +9,6 @@ function getTokenAuth() {
 }
 
 const createAxiosInterceptor = (url) => {
-  console.log(url);
   const axiosCreate = axios.create({
     baseURL: url,
     headers: {

@@ -1,11 +1,8 @@
 import BaseService from './baseService';
 import API from '../config/rest';
 
-const loginMember = (email, password) => {
-  return BaseService.post(API.LOGINMEMBER, { email, password });
-};
-const book = () => {
-  return BaseService.get(API.BOOKS);
+const loginMember = (username, password) => {
+  return BaseService.post(API.LOGINMEMBER, { username, password });
 };
 
-export default { loginMember, book };
+export default { loginMember };

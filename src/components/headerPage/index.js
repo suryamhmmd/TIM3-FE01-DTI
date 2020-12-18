@@ -6,6 +6,9 @@ import { isUserAuthenticated, setCookie } from '../../utils/cookie';
 
 const Header = () => {
   const listMenu = ['Home', 'Catalog', 'LoginMember', 'Register'];
+  // const listMenuAdmin = ['Home', 'Manage'];
+  // const listMenuMember = ['Home', 'Peminjaman', 'Pengembalian'];
+
   const Logout = () => {
     setCookie('userData', '', -1);
     setCookie('token', '', -1);

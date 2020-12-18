@@ -6,9 +6,15 @@ import {
   LoginMember,
   Register,
   LoginPustakawan,
+  AdminPage,
 } from '../pages';
 
 const routes = [
+  {
+    path: '/adminPage',
+    component: AdminPage,
+    isPublic: true,
+  },
   {
     path: '/loginMember',
     component: LoginMember,
