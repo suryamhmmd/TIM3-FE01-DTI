@@ -1,3 +1,5 @@
 export default {
-  LOGIN: '/login',
+  LOGINMEMBER: '/login',
+  LOGINADMIN: '/admin',
+  REGISTERADMIN: '/signup',
 };

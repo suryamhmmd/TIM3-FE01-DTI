@@ -9,6 +9,10 @@ function getTokenAuth() {
 }
 
 const createAxiosInterceptor = (url) => {
+  const myToken = getTokenAuth();
+  if (myToken) {
+    console.log('Hello my token', myToken);
+  }
   const axiosCreate = axios.create({
     baseURL: url,
     headers: {
